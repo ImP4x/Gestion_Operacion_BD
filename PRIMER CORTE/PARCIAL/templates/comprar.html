@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+    <form method="POST">
+        <select name="producto" required>
+            {% for producto in productos %}
+            <option value="{{ producto[0] }}">{{ producto[1] }} (Stock: {{ producto[3] }})</option>
+            {% endfor %}
+        </select>
+        <input type="number" name="cantidad" placeholder="Cantidad" required>
+        <button type="submit">Comprar</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="/ReporteTotal" class="btn-reporte">Reporte Total</a>
+<table>
+    <tr>
+        <th>Producto</th>
+        <th>Valor Unitario</th>
+        <th>Stock</th>
+        <th>Acciones</th>
+    </tr>
+    {% for producto in productos %}
+    <tr>
+        <td>{{ producto[1] }}</td>
+        <td>{{ producto[2] }}</td>
+        <td>{{ producto[3] }}</td>
+        <td>
+            <a href="/Modificar/{{ producto[0] }}" class="btn-editar">Editar</a>
+            <a href="/Eliminar/{{ producto[0] }}" class="btn-eliminar">Eliminar</a>
+            <a href="/ReporteProducto/{{ producto[0] }}" class="btn-reporte">Reporte</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% if request.args.get('actualizado') %}
+<div class="success">¡Producto actualizado correctamente!</div>
+{% endif %}
+{% endblock %}
