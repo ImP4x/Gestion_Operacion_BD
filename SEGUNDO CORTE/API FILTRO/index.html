@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search API</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="search-container">
+            <div class="search-wrapper">
+                <div class="search-icon">
+                    <img src="lupa.png" alt="Buscar">
+                </div>
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Buscar imágenes..."
+                    onkeypress="handleEnter(event)"
+                >
+            </div>
+            <div class="button-group">
+                <button class="search-btn" onclick="searchImages()">Buscar</button>
+                <button class="save-btn" onclick="saveSelected()">Guardar</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="image-grid" id="imageGrid"></div>
+    
+    <div class="attribution">
+        Imágenes de <a href="https://pixabay.com" target="_blank">Pixabay</a>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
