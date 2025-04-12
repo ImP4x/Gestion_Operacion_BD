@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="table-container">
+    <h2>Inventario de Huevos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Tamaño</th>
+                <th>Precio</th>
+                <th>Total Huevos</th>
+                <th>Cubetas</th>
+                <th>Docenas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for huevo in inventario %}
+            <tr>
+                <td>{{ huevo.tipo }}</td>
+                <td>{{ huevo.tamanio }}</td>
+                <td>{{ huevo.precio | number_format }}</td>
+                <td>{{ huevo.stock }}</td>
+                <td>{{ (huevo.stock // 30) }}</td>
+                <td>{{ (huevo.stock // 12) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

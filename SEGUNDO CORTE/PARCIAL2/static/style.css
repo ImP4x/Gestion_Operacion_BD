@@ -1,0 +1,414 @@
+:root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --tercer: #FFCD01;
+    --cuarto: #1A8009;
+    --text:#f5c221;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background: url('imagen.jpg') no-repeat center center fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* Agrega estos estilos al CSS */
+.main-footer {
+    background: var(--light);
+    color: #0e3f05;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    margin-top: auto; /* Para fijar al fondo si usas flex */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-footer p {
+    margin: 0.4rem 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.logo {
+    position: absolute;
+    left: 50px;
+    top: 5px;
+    width: auto;  /* Tamaño aumentado */
+    height: auto;  /* Mantiene proporción */
+    z-index: 1000; /* Asegura que esté por encima */
+    transition: all 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 20px 15px 180px; /* Espacio para logo + márgenes */
+    background: var(--light);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    overflow-x: auto; /* Scroll horizontal si no cabe */
+}
+
+nav a {
+    color: #1A8009;
+    text-decoration: none;
+    margin-left: 2rem;
+    margin-left: 1.5rem;
+    white-space: nowrap;
+    padding: 8px 15px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--cuarto);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+nav a:hover {
+    color: var(--cuarto);
+}
+
+.hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: transparent;
+}
+
+.welcome-text {
+    font-size: 8.5rem;
+    color: #f5c221;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease;
+    font-family: "Yellowtail", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Media queries CORRECTAMENTE estructurados al final */
+@media (max-width: 1200px) {
+    .welcome-text {
+        font-size: 7rem;
+    }
+}
+@media (max-width: 768px) {
+    .welcome-text {
+        font-size: 4.5rem;
+        line-height: 1.2;
+        padding: 0 1rem;
+        color: #f7df21;
+    }
+    
+    .table-container {
+        width: 98%;
+        margin: 1rem auto;
+    }
+    
+    table {
+        min-width: 600px;
+    }
+    
+    /* Scrollbar visible */
+    .table-container::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .table-container::-webkit-scrollbar-thumb {
+        background: var(--cuarto);
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-text {
+        font-size: 3.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    table {
+        min-width: 500px; /* Reducido para mejor ajuste */
+    }
+    
+    .table-container h2 {
+        font-size: 1.5rem !important;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(calc(20px + 1vh)); /* Adaptable a pantalla */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-gradient {
+    background: #f5c221;
+    color: #266d35;
+    padding: 1rem 2.5rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 0 4px 15px rgba(151, 111, 2, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(148, 121, 3, 0.4);
+}
+
+.table-container {
+    overflow-x: auto;
+    width: 95%;
+    margin: 2rem auto;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    background: white;
+    scrollbar-width: thin; /* Para Firefox */
+}
+
+/* Scrollbar personalizada */
+.table-container::-webkit-scrollbar {
+    height: 8px;
+    background-color: #f1f1f1;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: var(--cuarto);
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #0e4404;
+}
+
+table {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: collapse;
+}
+
+.table-container h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--cuarto);
+    padding: 0.5rem 0;
+    margin: 0 auto;
+    width: 100%;
+    background: linear-gradient(to right, var(--tercer), var(--cuarto));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+th {
+    background: var(--cuarto);
+    color: white;
+    padding: 1.2rem;
+    text-align: left;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+tr {
+    background: white;
+}
+
+tr:hover {
+    background: #f7df21;
+}
+
+/* Estilos para formularios */
+.form-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: var(--secondary);
+    outline: none;
+}
+
+button[type="submit"] {
+    background: var(--cuarto);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background: #0e4404;
+    transform: translateY(-2px);
+}
+
+.error {
+    background: #ffeceb;
+    color: var(--accent);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 2px solid #ffcdca;
+}
+
+.success {
+    background: #dff0d8;
+    color: #3c763d;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 2px solid #d0e9c6;
+}
+/* Contenedor principal */
+.client-type { /* ← Coincide con tu div */
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Botones individuales */
+.btn-cliente { /* ← Coincide con tus botones */
+    background: white;
+    color: var(--cuarto);
+    border: 2px solid var(--cuarto);
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    min-width: 180px;
+    text-align: center;
+}
+
+/* Estado activo */
+.btn-cliente.active { /* ← Clase que añade tu JavaScript */
+    background: var(--cuarto);
+    color: white;
+}
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 0.7rem;
+    }
+    
+    .main-footer p {
+        font-size: 0.6rem;
+    }
+    .logo {
+        height: 45px;
+        left: 10px;
+        top: 1px;
+    }
+    
+    nav {
+        padding: 10px 15px 10px 130px; /* Ajuste preciso para móvil */
+    }
+    
+    nav a {
+        margin-left: 1rem;
+        padding: 6px 10px;
+        font-size: 0.7rem;
+    }
+    body {
+        background: url('cel.jpg') no-repeat center center fixed;
+    }
+    
+    /* Campos de formulario */
+    input, select {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
+
+    button[type="submit"] {
+        font-size: 1.1rem;
+        padding: 0.8rem 1rem;
+    }
+
+    /* Ajustes específicos para el formulario de compra */
+    #opcionesUnidad select {
+        font-size: 0.85rem;
+    }
+    /* Botones de selección de cliente */
+    .client-type {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .btn-cliente {
+        width: 100%;
+        min-width: auto;
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+    /* Formularios */
+    .form-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    th, td {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+        min-width: auto;
+        white-space: nowrap;
+    }
+}

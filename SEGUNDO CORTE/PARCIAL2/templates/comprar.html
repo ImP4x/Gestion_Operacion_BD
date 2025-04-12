@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+    <form method="POST" onsubmit="return validarCliente()">
+        <div class="client-type">
+            <button type="button" class="btn-cliente" id="btnNatural" onclick="seleccionarCliente('natural')">Persona Natural</button>
+            <button type="button" class="btn-cliente" id="btnJuridica" onclick="seleccionarCliente('juridica')">Persona Jurídica</button>
+            <input type="hidden" name="tipo_cliente" id="tipo_cliente" required>
+        </div>
+        
+        <div id="opcionesUnidad" style="display:none;">
+            <select name="unidad" id="unidad">
+                <option value="cubetas">Cubetas (30 unid.)</option>
+                <option value="docenas">Docenas (12 unid.)</option>
+            </select>
+        </div>
+
+        <input type="text" name="nombre_cliente" placeholder="Nombre del cliente" required>
+        <input type="text" name="documento" placeholder="CC/NIT" required>
+        <select name="tipo_huevo" required>
+            <option value="" disabled selected>Tipo de huevo</option>
+            <option value="ROJO">Rojo</option>
+            <option value="BLANCO">Blanco</option>
+        </select>
+        <select name="tamanio" required>
+            <option value="" disabled selected>Tamaño</option>
+            <option value="A">A</option>
+            <option value="AA">AA</option>
+            <option value="B">B</option>
+            <option value="EXTRA">EXTRA</option>
+        </select>
+        <input type="number" name="cantidad" placeholder="Cantidad" required>
+        <button type="submit">Comprar</button>
+    </form>
+</div>
+
+<script>
+function seleccionarCliente(tipo) {
+    const unidadDiv = document.getElementById('opcionesUnidad');
+    const unidadSelect = document.getElementById('unidad');
+    
+    document.getElementById('tipo_cliente').value = tipo;
+    document.querySelectorAll('.btn-cliente').forEach(btn => btn.style.backgroundColor = '');
+    document.getElementById(`btn${tipo.charAt(0).toUpperCase() + tipo.slice(1)}`).style.backgroundColor = '#4CAF50';
+    
+    if (tipo === 'juridica') {
+        unidadDiv.style.display = 'none';
+        unidadSelect.value = 'cubetas';
+    } else {
+        unidadDiv.style.display = 'block';
+    }
+}
+</script>
+{% endblock %}
